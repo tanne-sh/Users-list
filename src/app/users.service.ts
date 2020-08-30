@@ -3,9 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersListService {
+export class UsersService {
 
   constructor() { }
+
+  getUsersList() {
+    return this.usersList
+  }
 
   usersList = [
     {
