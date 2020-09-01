@@ -37,7 +37,8 @@
   <button mat-raised-button class="btn" color="primary" (click)="addUser()">Add to</button>
 
 </div>
-<mat-selection-list #users (selectionChange)="selectItem(users.selectedOptions.selected)">
+<div *ngIf="usersList.length>0; else empty">
+  <mat-selection-list #users (selectionChange)="selectItem(users.selectedOptions.selected)">
     <mat-list-option 
     [value]="user"
         *ngFor="let user of usersList; let i=index"
@@ -60,6 +61,13 @@
     <button mat-raised-button class="btn" color="warn" (click)="deleteUsers()">Delete</button>
   </div>
 </div>
+</div>
+<ng-temlate #empty>
+  <div>
+    Users not found</div>
+</ng-temlate>
+
+
 
 
  
