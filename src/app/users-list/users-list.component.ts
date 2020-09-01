@@ -9,6 +9,9 @@ import { User} from '../shared/user';
 })
 export class UsersListComponent implements OnInit {
  usersList: User[] = [];
+ username: string;
+ name: string;
+ 
   constructor(public userService: UsersService) { }
 
   ngOnInit(): void {
