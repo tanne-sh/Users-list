@@ -28,11 +28,14 @@
 
   <mat-form-field class="item" appearance="outline" >
     <mat-label>User Role</mat-label>
-    <mat-select #list (selectionChange)="sort(list.value)">
+    <mat-select [(ngModel)]="role">
       <mat-option value="Admin">Admin</mat-option>
       <mat-option value="User">User</mat-option>              
     </mat-select>
   </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addUser(">Add to</button>
+
 </div>
 <mat-selection-list #users>
     <mat-list-option 
