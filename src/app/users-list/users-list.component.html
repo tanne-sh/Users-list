@@ -34,11 +34,12 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="addUser()">Add to</button>
+  <button mat-raised-button class="btn" color="primary" (click)="addUser()">Add to</button>
 
 </div>
-<mat-selection-list #users>
+<mat-selection-list #users (selectionChange)="selectItem(users.selectedOptions.selected)">
     <mat-list-option 
+    [value]="user"
         *ngFor="let user of usersList; let i=index"
         [ngClass]="{'gray': i%2}">
     <div>
@@ -51,6 +52,14 @@
     </mat-list-option>
   </mat-selection-list>
   
-  <p>
-    Options selected: {{users.selectedOptions.selected.length}}
-  </p>
+<div class="line footer">
+  <div>  
+      Selected users: {{users.selectedOptions.selected.length}}
+  </div>
+  <div>
+    <button mat-raised-button class="btn" color="warn" (click)="deleteUsers()">Delete</button>
+  </div>
+</div>
+
+
+ 
